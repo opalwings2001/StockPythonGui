@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="/charts/">
+    
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" 
+             href="home.html">Back to Home 
+          </a>
+          <br>
+          <a class="navbar-brand" 
+             href="stocks.html">Back to Stocks 
+          </a>
+        </div>
+    </nav>
+
+    <title>Chart</title>
+
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+</head>
+<body>
+    <h1>Generate Your Chart</h1>
+    
+    <br>
+
+    <button 
+        type = "button"
+        class = "button" 
+        id = "graph_button"
+        onclick="show_graph()">Generate Graph
+    </button>
+
+    <button 
+        type = "button"
+        class = "button" 
+        id = "reset_button"
+        onclick="hide_graph()">Reset
+    </button>
+    
+    <br>
+
+    <iframe
+
+        id= 'stock_chart' 
+        src='C:\Nitya\Python\pyProjects\StockScrape\chart_stock.html' 
+        height=400 
+        width=1200 
+        frameBorder=2 
+        style = "visibility: hidden; position: relative; padding-top: 20pt;">
+
+    </iframe>
+
+    <script>
+
+        function show_graph(){
+            document.getElementById('stock_chart').style.visibility = 'visible'
+            document.getElementById('reset_button').style.visibility = 'visible'
+        }
+        function hide_graph(){
+            document.getElementById('stock_chart').style.visibility = 'hidden'
+            document.getElementById('reset_button').style.visibility = 'hidden'
+        }
+        document.getElementById('reset_button').onmouseout = function() {
+            this.style.background = "#deafc5"
+        }
+        document.getElementById('reset_button').onmouseover = function(){
+            this.style.background = "#AAAAAA"
+        }
+        document.getElementById('graph_button').onmouseover = function(){
+            this.style.background = "#AAAAAA"
+        }
+        document.getElementById('graph_button').onmouseout = function(){
+            this.style.background = "#cbdeaf"
+        }
+
+    </script>
+
+    <br> 
+   
+</body>
+</html>

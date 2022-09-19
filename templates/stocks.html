@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="/stock_data/">
+
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" 
+             href="home.html">Back to Home 
+          </a>
+        </div>
+    </nav>
+
+    <title>Stocks</title>
+
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+    <py-env>
+        - js
+        - paths:
+            - /stock_scrape/stock_api_csv_parser.py
+            - /stock_scrape/charts.py
+    </py-env>
+
+<body>
+    <h1>Get Stock Data</h1>
+
+    <form action="chart.html" onsubmit="showAlert()" method="get">
+        Enter stock symbol...<br>
+        <input type="text" id = "myTicker" name = "myTicker" placeholder="Enter stock symbol: " style="background-color: #e4d3ff">
+        <br><br>
+        Enter Candlestick or Time Series...<br>
+        <input type="text" id = "myChartChoice" name = "myChartChoice" placeholder="Enter chart style: " style="background-color: #e4d3ff">
+        <br><br>
+        <input type="submit" id = "submit_btn" style="background-color: #FFFFFF;"  
+            onmouseover= "this.style.background = '#AAAAAA'"
+            onmouseout= "this.style.background = '#ffffff'">
+    </form>
+    
+    <br>
+
+    <script>
+        
+        function to_charts() {
+            location.href = 'chart.html'
+        }
+
+        function showAlert() {
+            alert("Input Noted! Continue to chart page...")
+        }
+        
+    </script>
+
+    <py-script>
+        from stock_api_csv_parser import get_stock_csv_file
+        from js import document
+
+        symbol = document.getElementById('myTicker').innerHTML
+        chart_type = document.getElementById('myChartChoice').innerHTML
+
+        stock_data_file = get_stock_csv_file(symbol)
+
+        make_stock_chart(symbol, chart_type, stock_data_file)
+        
+    </py-script>
+
+    <br>
+
+    <!-- <button 
+        type = "button"
+        class = "button" 
+        id = "get_stock_data_btn"
+        onclick="to_charts()"
+        >Continue!
+    </button>
+        
+    <script>
+        document.getElementById('get_stock_data_btn').onmouseover = function(){
+            this.style.background = "#AAAAAA"
+        }
+        document.getElementById('get_stock_data_btn').onmouseout = function(){
+            this.style.background = "#76c7e3"
+        }
+    </script> -->
+
+</body>
+
+
+</head>
+</html>

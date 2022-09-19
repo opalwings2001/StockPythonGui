@@ -1,0 +1,51 @@
+* {
+    box-sizing:content-box;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color:bisque
+}
+head {
+    justify-items: center;
+} 
+
+body {
+    display: block;
+    padding-left: 25px;
+    color: #464646;
+    align-items: center;
+    justify-content: center;
+    margin: 25px auto;
+}
+
+#graph_button {
+    position: relative;
+    color:#464646;
+    top:20%;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    background-color: #cbdeaf
+}
+
+#reset_button {
+    position: relative;
+    color:#464646;
+    top:20%;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    visibility: hidden;
+    background-color: #deafc5
+}
+
+#get_stock_data_btn {
+    
+    position: relative;
+    color:#464646;
+    top:40%;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 20px;
+    padding: 15px;
+    background-color: #76c7e3
+}
+
